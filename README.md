@@ -18,7 +18,7 @@ largely it came down to the following few items:
     with many files) could possibly be faster using the keyboard than it could
     be with the mouse.
 
-3 contrasts a lot with how I feel about it today, and I believe the main
+Number 3 contrasts a lot with how I feel about it today, and I believe the main
 selling point is that it is much more efficient to use the keyboard
 for *almost* anything, and VIM strives to make that possible.
 
@@ -63,6 +63,9 @@ _DEMO_:
     editors are in at all times.
 3.  *Visual Mode*: For selecting text - kind of like selecting text in a
     regular editor.
+4.  Demo changing modes, talk about how `ESC` is the default but that you can
+    change it to whatever you want, like `fd`, so that you don't have to leave
+    the home row for something you do so often.
 
 Why modes?  The benefit of separating `normal` mode from `insert` mode is that
 in `normal` mode, you can use regular keys to input commands, avoiding
@@ -78,6 +81,9 @@ writing new code.
 
 Here are some of the ways VIM can make you faster while editing a single file:
 
+Single File
+-----------
+
 _DEMO_:
 
 1.  Show navigation:
@@ -85,12 +91,15 @@ _DEMO_:
     *  Show moving around the file with `CTRL-F`, and `CTRL-B`.  Explain that,
        yes, this does use modifier keys, but that you can always bind them to
        whatever you want.
+    *  Show moving forward and backward by word.
+    *  Show moving forward and backward to a specific character.
     *  Show moving to the beginning and end of the line, via `$` and `^`.
     *  Show moving to the beginning and end of the file, via `gg` and `G`.
     *  Show moving the cursor to the top, center, and bottom of the current
        window using `H`, `M`, and `L`.
     *  Show how to center the screen using `zz`.
     *  Show navigation with marks.
+    *  Show navigating with `%`.
     *  Show navigating the file with easymotion.
 
 2.  Show selection/copy/paste.
@@ -103,3 +112,49 @@ _DEMO_:
     *  Show how you can use block selection to change a block of code spanning
        multiple lines.
     *  Show how you can use block selection to insert text on multiple lines.
+    *  Show text objects, `vii`, `vi}` etc.  Perhaps this is a good time to
+       talk about verbs and mention that `v` can be used as a verb for
+       "select", and how verbs can be combined with movement commands.
+
+3.  Show text manipulation.
+    *  Show how to delete a single character with the `x` verb.  Mention that
+       it goes into the default clipboard, show how it can be used to swap
+       characters.
+    *  Show how to delete a single line with `dd`, and mention that it goes
+       into the default clipboard and can be pasted later, and can be used to
+       swap lines.
+    *  Show how commands/verbs can be repeated by putting a count before them.
+    *  Talk about the difference between the `c` and `d` verbs.
+    *  Show how movement commands can be combined with verbs some more, like
+       `ct` and `c$` and `dG`
+    *  Show "change in" and "delete in".
+    *  Show "change surround".
+    *  Show what `J` does to combine two lines into one.  Show how you can
+       combine multiple lines by including a count.
+
+Multiple Files
+--------------
+
+All that is great, but how is VIM at managing multiple files in a project?
+Lucas specifically asked about tabs.  Tabs in VIM are not the same as tabs in
+other editors, in fact, many believe they are named incorrectly and should have
+been called "layouts", but more on that later.  Just know that tabs in VIM
+are not what you think they are.
+
+Where does this leave us?  How can we manage multiple open files at the same
+time?  Why aren't tabs implemented in the way I expect?
+
+Let's start with the basics of files in VIM.  VIM calls file that you are
+editing a "buffer".  When you open VIM with more than one file, for example, by
+calling VIM like so: `vim file1.txt file2.txt`, VIM opens both files in
+separate buffers.  These buffers aren't required to be visible in VIM, many
+buffers can be open in the background.  When you want to view a file, VIM opens
+the buffer in something called a "Window".  You can have multiple windows
+viewing the same buffer, at various places inside the file.
+
+_DEMO_:
+
+1.  Show opening multiple files, show using CtrlP for buffers
+2.  Show opening multiple window splits, show that you can open the same file
+    in many windows, at various locations in the buffer.
+
