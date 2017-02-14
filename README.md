@@ -5,25 +5,29 @@ This presentation doesn't aim to teach you how to use VIM, rather, I want to
 explain and show why in the world you'd want to use a 25 year old command line
 text editor over whatever it is you're using now.
 
-I've been coding professionally in some form since 1999, starting at the very
-beginning, there were lots of recommendations for using VIM, from blog posts,
-from colleagues, etc.  Although I used VIM for editing configuration files on
-Linux, it wasn't until 2006 that I started seriously investigating it as my
-main text editor for programming.  The reasons for the delay were many, but
-largely it came down to the following few items:
+I've been coding professionally in some form since 1999, and starting from the
+very beginning, there were lots of recommendations for using VIM, from blog
+posts, from colleagues, etc.  Although I used VIM for editing configuration
+files on Linux, it wasn't until 2006 that I started seriously investigating it
+as my main text editor for programming.  The reasons for the delay were many,
+but largely it came down to the following few items:
 
 1. It was ugly.
 2. It was not a GUI application.
-3. I could not understand how navigating code (especially in a large project
+3. I was fairly sure that people that still used it were just tech hipsters,
+   and the real reason they used it is to look cool.   Cus text editors make
+   you cool, obviously.
+4. I could not understand how navigating code (especially in a large project
    with many files) could possibly be faster using the keyboard than it could
    be with the mouse.
 
-Number 3 is the big one.  There's something to be said about the precision you
+Number 4 is the big one.  There's something to be said about the precision you
 can have with the mouse - you look on the screen, and you click where you want
 to the cursor to go.  I could not fathom how you could get this precision in
 VIM.  It turns out, however, that this is just not the way to approach VIM at
-all.  You have to just trust that the creators and 25 years of history have
-created an alternate way to do things, quickly, and in a unique way.
+all.  You have to just trust that the creators and 25 years of history (41
+years of history if you count VI, the editor VIM is based on) have created an
+alternate way to do things, quickly, and in a unique way.
 
 The fact is, constantly reaching for your mouse to do things when you don't
 have to slows you down.  Think about how often you reach for your mouse as
@@ -31,14 +35,24 @@ you're coding?  What if you could do the exact same thing, in most cases,
 without leaving the home row on your keyboard?  Would it make you faster?
 
 You cannot get the most out of VIM without committing to this philosophy.  This
-is the main reason that VIM has such a large learning curve.  It's a completely
-different approach to something you've been doing every single day, all day,
-some of you for a very long time.
+is one of the reasons that I find VIM plugins in other editors to be lacking.
+Instead of committing to one philosophy, you end up using two philosophies, IE,
+"I use the mouse for this, but not for this".  This is also the main reason I
+think that VIM has such a large learning curve.  It's a completely different
+approach to something you've been doing every single day, all day, some of you
+for a very long time.
 
 In this presentation, I will be showing you how I use VIM.  For the most part,
 I won't be separating what you can do with vanilla VIM vs what you can do with
 VIM plugins, because I believe a good portion of VIM's strength is in the
-plugins, and after 25 years, there are a lot of them.
+plugins, and after 25 years, there are a hell of a lot of them.  If you can
+think of something you want to do, VIM probably has a plugin for it.
+Unfortunately, the quality of the plugins varies a lot, and it can take a while
+to find the ones that you like.
+
+Note that the presentation is only going to show a small fraction of what is
+possible in VIM, that even after using it for so long, you still learn new
+things all the time.
 
 First things first, I will demo one of my favorite things about VIM:
 
@@ -63,7 +77,8 @@ _DEMO_: |:enew|
 
 1. *Normal Mode*: For navigation an manipulation of text.
 2. *Insert Mode*: For inserting new text.  This is the mode that most text
-   editors are in at all times.
+   editors are in at all times.  There are several ways to enter insert mode,
+   but the basic command is `i`, which will enter insert mode at your cursor.
 3. *Visual Mode*: For selecting text - kind of like selecting text in a regular
    editor.
 4. Demo changing modes, talk about how `ESC` is the default but that you can
@@ -80,11 +95,9 @@ more than one finger at a time to move your cursor around.
 VIM starts in `normal` mode, meaning, when you open VIM, you can't just
 immediately start typing code.  The reason for this is another philosophy of
 VIM: you spend more time editing/manipulating/moving existing code than you do
-writing new code.
-
-Note that the presentation is only going to show a small fraction of what is
-possible in VIM, that even after using it for so long, you still learn new
-things all the time.
+writing new code.  In fact, you should really only enter the other modes for
+short bursts, and then get into the habit of going back to normal mode
+immediately.
 
 Here are some of the ways VIM can make you faster while editing a single file:
 
@@ -169,22 +182,22 @@ viewing the same buffer, at various places inside the file.
 
 _DEMO_:
 
-1. Show opening multiple files, show using `CtrlP` for buffers, fuzzy search
-   and all of that.
-2. Show opening multiple window splits, show that you can open the same file
+1. Show opening multiple window splits, show that you can open the same file
    in many windows, at various locations in the buffer.
-3. Show that you can use the keyboard to navigate windows.
-4. Show that you can use easymotion to navigate windows.
+2. Show that you can use the keyboard to navigate windows.
+3. Show that you can use easymotion to navigate windows.
 
 Project Management
 ------------------
 
 _DEMO_:
 
-1. Explain how CtrlP works for opening files in a project.
-2. Show CtrlP fuzzy match.
-3. Show NERDTree, explain why you don't like it.
-4. Show NetRW, opening the current directory and opening the project
+1. Show opening multiple files, show using `CtrlP` for buffers, fuzzy search
+   and all of that.  Explain how `CtrlP` works, that it does a `git ls-files`
+   in the repository for the current buffer, and this means that you can have
+   two windows open to different projects, side by side.
+2. Show `NERDTree`, explain why you don't like it.
+3. Show `NetRW`, opening the current directory and opening the project
    directory.
 
 Layout Management
@@ -206,6 +219,8 @@ _DEMO_:
 3. Show gist-vim.
 4. Show `gw` |macros.py|.
 5. Demo the undo tree, `Gundo` and commands like `:earlier 2m`.
+6. Talk about the modeline, use |djangotemplate.html| as an example.
+7. Show inline help.
 
 Questions
 ---------

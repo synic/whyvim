@@ -1,0 +1,92 @@
+{% load blog_extras %}
+{% autoescape off %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title>{{ site_title }} | {% block title %}HOME{% endblock %}</title>
+  <link rel="stylesheet" href="{{ STATIC_URL }}/css/main.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}/css/pygments_style.css">
+	<script type='text/javascript' src='{{ STATIC_URL }}/js/lib/jquery-1.3.1.min.js'></script>
+	<script type='text/javascript' src='{{ STATIC_URL }}/js/sb.js'></script>
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0"
+		href="{{ site_url }}/feeds/{% if p_auth %}rss{% else %}latest{% endif %}" />
+  {% block javascript %}{% endblock %}
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type='text/javascript'>
+      function this_is_a_test_function() {
+        document.getElementById('woot').innerHTML = 'WOOT';
+      }
+    </script>
+</head>
+<body>
+
+<div id='header' onclick="location='/';">
+	<div id='top_border'></div>
+	<div id='header_inside'>
+		{{ site_caption }}
+	</div>
+</div>
+
+<div id='content'>
+	<div id='left_nav'>
+		<div class='left_nav_header'>
+			My Site
+		</div>
+		<div class='left_nav_content'>
+			<a href='{% url "index" %}'>Home</a><br />
+
+			{# flatpages #}
+			{% for page in flat_pages %}
+				<a href='{{ page.url }}'>{{ page.title }}</a><br />
+			{% endfor %}
+
+			{# main links #}
+			{% for link in main_links %}
+				<a href='{{ link.url }}'>{{ link.title }}</a><br />
+			{% endfor %}
+
+			<a href='{% url "blog:archive" %}'>Article Archive</a><br />
+			<a href='/feeds/{% if p_auth %}rss{% else %}latest{% endif %}'>RSS Feed</a><br />
+			<a href='/unsubscribe'>Unsubscribe</a>
+		</div>
+		<div class='left_nav_header'>
+			Categories
+		</div>
+		<div class='left_nav_content'>
+			{% for category in category_list %}
+				<a href='{% url "blog:category" category_id=category.id %}'>{{ category.name }}</a><br />
+			{% endfor %}
+		</div>
+		{% for name, links in link_groups.items %}
+			{% if links %}
+				<div class='left_nav_header'>
+					{{ name }}
+				</div>
+				<div class='left_nav_content'>
+					{% for link in links %}
+						<a href='{{ link.url }}'>{{ link.title }}</a><br />
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<div id='main'>
+		{% block main_title %}
+			{% if main_title %}
+				<div class='main_title'>{{ main_title }}</div>
+			{% endif %}
+		{% endblock %}
+		{% block content %}
+		{% endblock %}
+	</div>
+</div>
+<div id='footer'>
+</div>
+<div id='sb' align='right'></div>
+</body>
+</html>
+{% endautoescape %}
+
+<!-- :vim set ft=htmldjango expandtab=2 sts=2 ts=2 sw=2 ai: -->
