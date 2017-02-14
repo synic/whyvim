@@ -119,8 +119,9 @@ _DEMO_: |singlefile.c|
     * Show how you can use block selection to change a block of code spanning
       multiple lines.
     * Show how you can use block selection to insert text on multiple lines.
-    * Show text objects, `vw`, `viw`, `vis`, `vip`, `vii`, `vi}` etc (use
-      |README.md| and |singlefile.py|).  Perhaps this is a good time totalk
+    * Show text objects, `vw`, `viw`, `vis`, `vip`, `vi}`.  Show them the ones
+      that are useful for python, such as `vii`, `viM`, `viC`, etc (use
+      |README.md| and |singlefile.py|).  Perhaps this is a good time to talk
       about operators and mention that `v` can be used as a operator for
       "select", and how operators can be combined with movement commands.
 
