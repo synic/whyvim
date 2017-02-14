@@ -21,4 +21,4 @@ class SomeSuperSerializer(object):
         fields = ('updated_at', 'created_at', 'first_name',
                   'last_name', 'address',
                   'phone',
-                  'city', 'state', 'zip', 'profile', 'ssn', 'otherfielda,'otherfield2', 'otherfield3')
+                  'city', 'state', 'zip', 'profile', 'ssn', 'otherfield', 'otherfield2', 'otherfield3')

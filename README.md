@@ -18,9 +18,12 @@ largely it came down to the following few items:
    with many files) could possibly be faster using the keyboard than it could
    be with the mouse.
 
-Number 3 contrasts a lot with how I feel about it today, and I believe the main
-selling point is that it is much more efficient to use the keyboard
-for *almost* anything, and VIM strives to make that possible.
+Number 3 is the big one.  There's something to be said about the precision you
+can have with the mouse - you look on the screen, and you click where you want
+to the cursor to go.  I could not fathom how you could get this precision in
+VIM.  It turns out, however, that this is just not the way to approach VIM at
+all.  You have to just trust that the creators and 25 years of history have
+created an alternate way to do things, quickly, and in a unique way.
 
 The fact is, constantly reaching for your mouse to do things when you don't
 have to slows you down.  Think about how often you reach for your mouse as
@@ -79,6 +82,10 @@ immediately start typing code.  The reason for this is another philosophy of
 VIM: you spend more time editing/manipulating/moving existing code than you do
 writing new code.
 
+Note that the presentation is only going to show a small fraction of what is
+possible in VIM, that even after using it for so long, you still learn new
+things all the time.
+
 Here are some of the ways VIM can make you faster while editing a single file:
 
 Single File
@@ -91,7 +98,7 @@ _DEMO_: |singlefile.c|
     * Show moving around the file with `CTRL-F`, and `CTRL-B`.  Explain that,
       yes, this does use modifier keys, but that you can always bind them to
       whatever you want.
-    * Show moving forward and backward by word.
+    * Show moving forward and backward by word using `w` and `b`.
     * Show moving forward and backward to a specific character.
     * Show moving to the beginning and end of the line, via `$` and `^`.
     * Show moving to the beginning and end of the file, via `gg` and `G`.
@@ -112,23 +119,30 @@ _DEMO_: |singlefile.c|
     * Show how you can use block selection to change a block of code spanning
       multiple lines.
     * Show how you can use block selection to insert text on multiple lines.
-    * Show text objects, `vii`, `vi}` etc (use |singlefile.py|).  Perhaps this
-      is a good time totalk about verbs and mention that `v` can be used as a
-      verb for "select", and how verbs can be combined with movement commands.
+    * Show text objects, `vw`, `viw`, `vis`, `vip`, `vii`, `vi}` etc (use
+      |README.md| and |singlefile.py|).  Perhaps this is a good time totalk
+      about operators and mention that `v` can be used as a operator for
+      "select", and how operators can be combined with movement commands.
 
 3.  Show text manipulation.
-    * Show how to delete a single character with the `x` verb.  Mention that
-      it goes into the default clipboard, show how it can be used to swap
+    * Show how to delete a single character with the `x` operator.  Mention
+      that it goes into the default clipboard, show how it can be used to swap
       characters.
     * Show how to delete a single line with `dd`, and mention that it goes
       into the default clipboard and can be pasted later, and can be used to
       swap lines.
-    * Show how commands/verbs can be repeated by putting a count before them.
-    * Talk about the difference between the `c` and `d` verbs.
-    * Show how movement commands can be combined with verbs some more, like
+    * Show how commands/operators can be repeated by putting a count before
+      them.
+    * Talk about the difference between the `c` and `d` operators.
+    * Show `D` and `C`, and `A`.
+    * Show `o` and `O`.
+    * Show how movement commands can be combined with operators some more, like
       `ct` and `c$` and `dG`
-    * Show "change in" and "delete in".
-    * Show "change surround".
+    * Show "change inner" and "delete inner", things like `cw`, `ciw`, `cis`,
+      `cip`, `ci{`, `di{`.
+    * May be a good time to show what `.` does.
+    * Show the surround plugin.  Start with `ds"`, then show `cs"'`.  Show how
+      you can do something like `ysiw<strong>`.
     * Show what `J` does to combine two lines into one.  Show how you can
       combine multiple lines by including a count.
 
@@ -188,14 +202,23 @@ _DEMO_:
 
 1. Show autocompletion.
 2. Show macros |macros.py|.  Macro is `qa0f(xf'lr:f)xESCj`
-3. Show repeating commands with `.`.
-4. Show gist-vim.
-5. Show `gq` |macros.py|.
+3. Show gist-vim.
+4. Show `gw` |macros.py|.
+5. Demo the undo tree, `Gundo` and commands like `:earlier 2m`.
+
+Questions
+---------
+
+Ask if there are any questions.
 
 Spacemacs
 ---------
 
-Now, with all of that, you may be surprised to find out that I don't even use VIM.  I use emacs.  Why?  Emacs has a *much* better plugin system.  It's so good, that some enterprising folks have implemented almost ALL of VIM as a plugin in Emacs, and the result is that you get VIM with much better plugins.
+Now, with all of that, you may be surprised to find out that I don't even use
+VIM.  I use Emacs.  Why?  Emacs has a *much* better plugin system.  It's so
+good, that some enterprising folks have implemented almost ALL of VIM as a
+plugin in Emacs, and the result is that you get everything you get in VIM, but
+with much better plugins.
 
 _DEMO_:
 
